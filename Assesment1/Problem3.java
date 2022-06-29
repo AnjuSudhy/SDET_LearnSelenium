@@ -47,7 +47,10 @@ public static void main(String[] args) throws InterruptedException {
 		driver.findElement(By.xpath("//input[@placeholder='Search this list...']")).sendKeys("Anju"+Keys.ENTER);
 		
 		//6.Click on the Dropdown icon and Select Delete
-		driver.findElement(By.xpath("//div[@class='uiMenu']//a[@role='button']//span[text()='Show more actions']")).click();
+		//driver.findElement(By.xpath("//div[@class='uiMenu']//a[@role='button']//span[text()='Show more actions']")).click();
+		element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@role='button']//span[text()='Show Actions']")));
+       	jse.executeScript("arguments[0].click()", element);
+		//driver.findElement(By.xpath("//a[@role='button']//span[text()='Show Actions']")).click();
 		driver.findElement(By.xpath("//a[@title='Delete']")).click();
 		
 		//7.Click on the Delete option in the displayed popup window.
